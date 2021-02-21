@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.test.app.domain.model.RegistrationsItem" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/plateNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{item.plateNumber}'
+            style="@style/BlackStyle.TitleStyle.Huge"
+            android:layout_marginTop="@dimen/std_margin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="EBF28E"/>
+
+        <TextView
+            android:id="@+id/model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle.Subtitle"
+            android:text='@{item.vehicle.make+" " +item.vehicle.model}'
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/plateNumber"
+            tools:text="BMW X4 M40i" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrayBg"
+            android:layout_marginStart="@dimen/std_margin"
+            android:layout_marginEnd="@dimen/std_margin"
+            android:layout_marginTop="@dimen/std_margin"
+            app:layout_constraintTop_toBottomOf="@id/model"/>
+
+        <TextView
+            android:id="@+id/registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            app:expiryDateDetails='@{item.registration}'
+            android:layout_marginStart="@dimen/std_margin"
+            android:layout_marginTop="@dimen/std_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:text="Registration : Expiring on 1st March 2021" />
+
+        <TextView
+            android:id="@+id/vin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            app:vin='@{item.vehicle}'
+            android:layout_marginTop="@dimen/std_margin"
+            app:layout_constraintStart_toStartOf="@id/registration"
+            app:layout_constraintTop_toBottomOf="@id/registration"
+            tools:text="Vin : *******7324" />
+
+        <TextView
+            android:id="@+id/insurer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            android:text='@{@string/insurer(item.insurer.name)}'
+            android:layout_marginTop="@dimen/std_margin"
+            app:layout_constraintStart_toStartOf="@id/registration"
+            app:layout_constraintTop_toBottomOf="@id/vin"
+            tools:text="Insurer : Allianz" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

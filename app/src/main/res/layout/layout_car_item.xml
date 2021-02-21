@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.test.app.domain.model.RegistrationsItem" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_margin"
+        android:minHeight="@dimen/row_height"
+        android:maxHeight="@dimen/row_height">
+
+        <ImageView
+            android:id="@+id/EmployeeImage"
+            android:layout_width="@dimen/thumbnail_img_width"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/description"
+            app:vehicleType='@{item.vehicle.type}'
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/ic_sedan" />
+
+        <TextView
+            android:id="@+id/plateNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_margin"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text='@{item.plateNumber}'
+            style="@style/BlackStyle.TitleStyle"
+            android:layout_marginStart="@dimen/std_margin"
+            app:layout_constraintStart_toEndOf="@id/EmployeeImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Paramount Film Studio to layoff 5% of its people. Paramount Film Studio to layoff 5% of its people. Paramount Film Studio to layoff 5% of its peoples." />
+
+        <TextView
+            android:id="@+id/model"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            android:text='@{item.vehicle.make+" " +item.vehicle.model}'
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="@id/plateNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/plateNumber"
+            android:layout_marginTop="@dimen/std_tiny_margin"
+            tools:text="Paramount Film Studio to layoff 5% of its people. Paramount Film Studio to layoff 5% of its people. Paramount Film Studio to layoff 5% of its peoples." />
+
+        <TextView
+            android:id="@+id/expiryDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle.DescriptionStyle"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:expiryDate='@{item.registration}'
+            app:layout_constraintStart_toStartOf="@id/plateNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/model"
+            tools:text="Paramount Film Studio to layoff 5% of its people. Paramount Film Studio to layoff 5% of its people. Paramount Film Studio to layoff 5% of its peoples." />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

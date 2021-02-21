@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.test.app.ui.cars.CarListFragment"
+        android:label="@string/registrations">
+        <action
+            android:id="@+id/listFragmentAction"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.test.app.ui.cars.CarDetailsFragment"
+        android:label="@string/reg_details">
+        <argument
+            android:name="item"
+            app:argType="com.test.app.domain.model.RegistrationsItem"/>
+    </fragment>
+
+</navigation>
