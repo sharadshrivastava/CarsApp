@@ -19,7 +19,7 @@
         android:label="@string/reg_details">
         <argument
             android:name="item"
-            app:argType="com.test.app.domain.model.RegistrationsItem"/>
+            app:argType="com.test.app.data.db.entity.RegistrationEntity"/>
     </fragment>
 
 </navigation>

@@ -3,7 +3,7 @@ package com.test.app.ui
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import com.test.app.CarsActivity
+import com.test.app.RegistrationsActivity
 import kotlinx.android.synthetic.main.main_activity.*
 import org.junit.After
 import org.junit.Assert
@@ -17,7 +17,7 @@ import org.junit.runner.RunWith
 class EmployeeActivityTest {
 
     @get:Rule
-    val rule = ActivityScenarioRule(CarsActivity::class.java)
+    val rule = ActivityScenarioRule(RegistrationsActivity::class.java)
 
 
     @After

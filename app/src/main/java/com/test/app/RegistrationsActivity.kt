@@ -8,7 +8,7 @@ import androidx.navigation.ui.NavigationUI
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CarsActivity : AppCompatActivity() {
+class RegistrationsActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
 

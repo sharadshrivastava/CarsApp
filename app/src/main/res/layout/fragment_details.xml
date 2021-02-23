@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.test.app.domain.model.RegistrationsItem" />
+            type="com.test.app.data.db.entity.RegistrationEntity" />
 
         <import type="android.view.View" />
     </data>
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/BlackStyle.Subtitle"
-            android:text='@{item.vehicle.make+" " +item.vehicle.model}'
+            android:text='@{item.make+" " +item.model}'
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/plateNumber"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/BlackStyle"
-            app:expiryDateDetails='@{item.registration}'
+            app:expiryDateDetails='@{item}'
             android:layout_marginStart="@dimen/std_margin"
             android:layout_marginTop="@dimen/std_margin"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/BlackStyle"
-            app:vin='@{item.vehicle}'
+            app:vin='@{item.vin}'
             android:layout_marginTop="@dimen/std_margin"
             app:layout_constraintStart_toStartOf="@id/registration"
             app:layout_constraintTop_toBottomOf="@id/registration"
@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/BlackStyle"
-            android:text='@{@string/insurer(item.insurer.name)}'
+            android:text='@{@string/insurer(item.insurerName)}'
             android:layout_marginTop="@dimen/std_margin"
             app:layout_constraintStart_toStartOf="@id/registration"
             app:layout_constraintTop_toBottomOf="@id/vin"

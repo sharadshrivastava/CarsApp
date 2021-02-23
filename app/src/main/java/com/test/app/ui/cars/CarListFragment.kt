@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.test.app.R
+import com.test.app.data.db.entity.RegistrationEntity
 import com.test.app.data.network.Resource.Status.*
 import com.test.app.databinding.FragmentListBinding
 import com.test.app.domain.model.RegistrationsItem
@@ -52,7 +53,7 @@ class CarListFragment : Fragment(), ItemClickListener {
         carsListViewModel.employees.observe(viewLifecycleOwner) {
             when (it.status) {
                 LOADING -> binding.isLoading = true
-                SUCCESS -> handleResponse(isEmpty = it.data?.registrations?.size == 0)
+                SUCCESS -> handleResponse(isEmpty = it.data?.size == 0)
                 ERROR -> handleResponse(false, it.message)
             }
         }
@@ -74,7 +75,7 @@ class CarListFragment : Fragment(), ItemClickListener {
     }
 
     override fun onItemClick(item: Any?) {
-        if (item is RegistrationsItem){
+        if (item is RegistrationEntity){
             //showToast(item.full_name)
             findNavController().navigate(CarListFragmentDirections.listFragmentAction(item))
         }

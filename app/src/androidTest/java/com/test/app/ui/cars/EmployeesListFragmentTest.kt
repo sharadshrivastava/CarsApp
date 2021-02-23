@@ -11,7 +11,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import com.test.app.CarsActivity
+import com.test.app.RegistrationsActivity
 import com.test.app.R
 import com.test.app.ui.common.hasItemCount
 import com.test.app.ui.common.viewAtPosition
@@ -30,7 +30,7 @@ import org.junit.runner.RunWith
 class EmployeesListFragmentTest {
 
     @get:Rule
-    val rule = ActivityScenarioRule(CarsActivity::class.java)
+    val rule = ActivityScenarioRule(RegistrationsActivity::class.java)
 
     @Before
     fun setup() {

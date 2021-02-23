@@ -1,9 +1,9 @@
 package com.test.app.domain
 
+import com.test.app.data.db.entity.RegistrationEntity
 import com.test.app.data.network.Resource
-import com.test.app.domain.model.ApiResponse
 
 interface AppRepository {
 
-    suspend fun cars(): Resource<ApiResponse?>
+    suspend fun cars(): Resource<List<RegistrationEntity>>
 }

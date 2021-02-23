@@ -3,10 +3,10 @@ package com.test.app.data.network
 import com.test.app.domain.model.ApiResponse
 import retrofit2.http.GET
 
-interface CarsApi {
+interface RegistrationsApi {
 
     @GET(EMPLOYEES_PATH)
-    suspend fun employees(): ApiResponse?
+    suspend fun registrations(): ApiResponse?
 
     companion object {
         const val BASE_URL = "https://dl.dropboxusercontent.com/"

@@ -4,7 +4,7 @@ import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class CarsApp : Application() {
+class RegistrationsApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -12,7 +12,7 @@ class CarsApp : Application() {
     }
 
     companion object {
-        private var instance: CarsApp? = null
-        fun get(): CarsApp? = instance
+        private var instance: RegistrationsApp? = null
+        fun get(): RegistrationsApp? = instance
     }
 }

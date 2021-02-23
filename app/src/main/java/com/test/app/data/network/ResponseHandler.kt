@@ -1,10 +1,11 @@
 package com.test.app.data.network
 
-import com.test.app.CarsApp
+import com.test.app.RegistrationsApp
 import com.test.app.R
 import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 
 class ResponseHandler {
 
@@ -16,6 +17,7 @@ class ResponseHandler {
                 is HttpException -> Resource.error(getErrorMessage(e.code()), null)
                 is SocketTimeoutException -> Resource.error(getString(R.string.timeout), null)
                 is ConnectException -> Resource.error(getString(R.string.connection_error), null)
+                is UnknownHostException -> Resource.error(getString(R.string.network_error), null)
                 else -> Resource.error(getErrorMessage(Int.MAX_VALUE), null)
             }
         }
@@ -30,7 +32,7 @@ class ResponseHandler {
             }
         }
 
-        private fun getString(id: Int): String = CarsApp.get()?.getString(id) ?: ""
+        private fun getString(id: Int): String = RegistrationsApp.get()?.getString(id) ?: ""
     }
 
     enum class ErrorCodes(val code: Int) {

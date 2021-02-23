@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.test.app.domain.model.RegistrationsItem" />
+            type="com.test.app.data.db.entity.RegistrationEntity" />
 
         <import type="android.view.View" />
     </data>
@@ -24,7 +24,7 @@
             android:layout_width="@dimen/thumbnail_img_width"
             android:layout_height="wrap_content"
             android:contentDescription="@string/description"
-            app:vehicleType='@{item.vehicle.type}'
+            app:vehicleType='@{item.type}'
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             style="@style/BlackStyle"
-            android:text='@{item.vehicle.make+" " +item.vehicle.model}'
+            android:text='@{item.make+" " +item.model}'
             android:maxLines="2"
             android:ellipsize="end"
             app:layout_constraintStart_toStartOf="@id/plateNumber"
@@ -66,7 +66,7 @@
             style="@style/BlackStyle.DescriptionStyle"
             android:maxLines="1"
             android:ellipsize="end"
-            app:expiryDate='@{item.registration}'
+            app:expiryDate='@{item}'
             app:layout_constraintStart_toStartOf="@id/plateNumber"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/model"
