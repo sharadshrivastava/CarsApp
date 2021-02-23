@@ -15,7 +15,6 @@ import com.test.app.databinding.FragmentListBinding
 import com.test.app.domain.model.RegistrationsItem
 import com.test.app.ui.common.ItemClickListener
 import com.test.app.ui.common.showErrorBar
-import com.test.app.ui.common.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_list.*
 
