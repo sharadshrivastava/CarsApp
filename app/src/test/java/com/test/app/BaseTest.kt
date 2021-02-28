@@ -2,18 +2,26 @@ package com.test.app
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.test.app.data.AppRepositoryImpl
+import com.test.app.data.db.AppDao
 import com.test.app.data.network.RegistrationsApi
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.Rule
 import org.junit.rules.TestRule
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.junit.MockitoJUnitRunner
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+@RunWith(MockitoJUnitRunner::class)
 abstract class BaseTest {
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
+
+    @Mock
+    var dao: AppDao?  = null
 
     var mockWebServer = MockWebServer()
 
@@ -23,7 +31,7 @@ abstract class BaseTest {
         .build()
         .create(RegistrationsApi::class.java)
 
-    var repository = AppRepositoryImpl(api)
+    var repository = AppRepositoryImpl(api,dao)
 
     fun setResponse(fileName: String) {
         val input = this.javaClass.classLoader?.getResourceAsStream(fileName)

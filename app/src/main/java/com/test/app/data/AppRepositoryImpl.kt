@@ -12,20 +12,20 @@ import javax.inject.Singleton
 @Singleton
 class AppRepositoryImpl @Inject constructor(
     private val api: RegistrationsApi,
-    private val dao: AppDao
+    private val dao: AppDao?
 ) : AppRepository {
 
     /**
      * Making network call only for first time when DB is empty.
      * Next time onwards, getting data from DB.
      */
-    override suspend fun cars(): Resource<List<RegistrationEntity>> = try {
-        if (dao.entryCount() == 0) {
+    override suspend fun cars(): Resource<List<RegistrationEntity>?> = try {
+        if (dao?.entryCount() == 0) {
             api.registrations()?.registrations?.forEach {
                 dao.insert(it?.toRegistrationEntity())
             }
         }
-        ResponseHandler.handleSuccess(dao.registrations())
+        ResponseHandler.handleSuccess(dao?.registrations())
     } catch (e: Exception) {
         ResponseHandler.handleException(e)
     }

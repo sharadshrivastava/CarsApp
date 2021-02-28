@@ -54,20 +54,20 @@ class EmployeesListFragmentTest {
 
     @Test
     fun testListItemsCount() {
-        onView(withId(R.id.employeesList)).check(matches(hasItemCount(11)))
+        onView(withId(R.id.employeesList)).check(matches(hasItemCount(4)))
     }
 
     @Test
     fun testListFirstItem() {
         onView(withId(R.id.employeesList))
-            .check(matches(viewAtPosition(0, hasDescendant(withText("Alaina Daly")))));
+            .check(matches(viewAtPosition(0, hasDescendant(withText("EBF28E")))));
     }
 
     @Test
     fun testListLastItem() {  //first scroll till last and then check item.
         onView(withId(R.id.employeesList))
-            .perform(scrollToPosition<RecyclerView.ViewHolder>(10))
-            .check(matches(viewAtPosition(10, hasDescendant(withText("Tim Nakamura")))));
+            .perform(scrollToPosition<RecyclerView.ViewHolder>(3))
+            .check(matches(viewAtPosition(3, hasDescendant(withText("QWX55Z")))));
     }
 
     @Test

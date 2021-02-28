@@ -2,6 +2,7 @@ package com.test.app.viewmodels
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.test.app.common.readJson
+import com.test.app.data.db.entity.RegistrationEntity
 import com.test.app.data.network.Resource
 import com.test.app.domain.model.ApiResponse
 import com.test.app.domain.usecases.CarsUseCase
@@ -40,10 +41,14 @@ class EmployeesListViewModelTest {
     @Test
     fun testEmployees() {
         runBlocking {
-            Mockito.`when`(carsUseCase.employees()).thenReturn(Resource.success(apiResponse))
+            val list = mutableListOf<RegistrationEntity>()
+            apiResponse.registrations?.forEach {
+                list.add(it?.toRegistrationEntity()!!)
+            }
+            Mockito.`when`(carsUseCase.employees()).thenReturn(Resource.success(list))
             carsViewModel.employees.observeForever {
                 if (it.status == Resource.Status.SUCCESS) {
-                    Assert.assertEquals(apiResponse, it.data)
+                    Assert.assertEquals(list, it.data)
                 }
             }
         }

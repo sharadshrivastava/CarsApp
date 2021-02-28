@@ -5,5 +5,5 @@ import com.test.app.data.network.Resource
 
 interface AppRepository {
 
-    suspend fun cars(): Resource<List<RegistrationEntity>>
+    suspend fun cars(): Resource<List<RegistrationEntity>?>
 }

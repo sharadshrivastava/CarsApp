@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CarsApp</string>
+    <string name="app_name">RegistrationsApp</string>
     <string name="registrations">Registrations</string>
     <string name="reg_details">Registration Details</string>
     <string name="network_error">Network Error</string>
