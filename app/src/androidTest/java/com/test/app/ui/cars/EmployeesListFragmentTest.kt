@@ -34,6 +34,7 @@ class EmployeesListFragmentTest {
 
     @Before
     fun setup() {
+        //Added sleep to load json data in recycler view.
         Thread.sleep(3000)
     }
 
